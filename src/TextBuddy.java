@@ -13,6 +13,7 @@ import java.util.Scanner;
 public class TextBuddy {
 	
 	private static final String WELCOME_MESSAGE = "Welcome to Textbuddy.";
+	private static final String READY_MESSAGE = " is ready for use.";
 	private static final String DELETE_MESSAGE = "delete from ";
 	private static final String CLEAR_MESSAGE = "all content deleted from ";
 	private static final String ADD_MESSAGE = "added to ";
@@ -20,7 +21,7 @@ public class TextBuddy {
 	public static void main(String[] args) throws IOException {
 		String fileName = args[0];
 		System.out.println(WELCOME_MESSAGE);
-		System.out.println(fileName + " is ready for use.");
+		System.out.println(fileName + READY_MESSAGE);
 
 		FileWriter newFile = new FileWriter(new File(fileName), true);
 		executeCommand(fileName);
