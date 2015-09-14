@@ -8,7 +8,7 @@ import java.io.PrintWriter;
 import java.util.Scanner;
 
 
-//REFACTOR STUFFZ
+
 
 public class TextBuddy {
 	
