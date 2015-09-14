@@ -118,10 +118,10 @@ public class TextBuddy {
 
 	// displays all content in the file
 	private static void displayFile(String fileName) throws IOException {
-		File toBeDisplayed = new File(fileName);
+		File fileToDisplay = new File(fileName);
 		FileReader fReader;
 		try {
-			fReader = new FileReader(toBeDisplayed);
+			fReader = new FileReader(fileToDisplay);
 			BufferedReader bReader = new BufferedReader(fReader);
 			String data = bReader.readLine();
 			if (data == null) {
