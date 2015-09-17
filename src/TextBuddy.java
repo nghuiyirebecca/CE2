@@ -17,6 +17,7 @@ public class TextBuddy {
 	private static final String DELETE_MESSAGE = "delete from ";
 	private static final String CLEAR_MESSAGE = "all content deleted from ";
 	private static final String ADD_MESSAGE = "added to ";
+	private static final int SYSTEM_EXIT_SUCCESS = 0;
 	
 	public static void main(String[] args) throws IOException {
 		String fileName = args[0];
@@ -73,7 +74,7 @@ public class TextBuddy {
 				totalLines = 0;
 				System.out.println(CLEAR_MESSAGE + fileName);
 			} else if (command.equals("exit")) {
-				System.exit(0);
+				System.exit( SYSTEM_EXIT_SUCCESS);
 			}
 			System.out.print("command: ");
 		}
