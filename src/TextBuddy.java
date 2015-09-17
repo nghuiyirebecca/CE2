@@ -30,7 +30,7 @@ public class TextBuddy {
 	}
 
 	// To count the total number of data lines in the file
-	private static int numLines(String fileName) throws IOException {
+	static int numLines(String fileName) throws IOException {
 		File toProcess = new File(fileName);
 		FileReader fReader = new FileReader(toProcess);
 		BufferedReader bReader = new BufferedReader(fReader);
@@ -82,7 +82,7 @@ public class TextBuddy {
 	}
 
 	// clears the file of all inputs
-	private static void clearFile(String fileName) throws IOException {
+	static void clearFile(String fileName) throws IOException {
 		FileWriter fWriter = new FileWriter(fileName);
 		PrintWriter pWriter = new PrintWriter(fWriter);
 		pWriter.print("");
@@ -90,7 +90,7 @@ public class TextBuddy {
 	}
 
 	// deletes a specified line from the file
-	private static void deleteFromFile(String fileName, int lineToDelete,
+	static void deleteFromFile(String fileName, int lineToDelete,
 			int totalLines) throws IOException {
 		File toDelete = new File(fileName);
 
@@ -145,7 +145,7 @@ public class TextBuddy {
 	}
 
 	// Add new input line to the file
-	private static void addToFile(String fileName, String newLine) {
+	static void addToFile(String fileName, String newLine) {
 		FileWriter fWriter;
 		try {
 			fWriter = new FileWriter(fileName, true);
