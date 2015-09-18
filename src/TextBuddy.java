@@ -79,6 +79,9 @@ public class TextBuddy {
 				if (FileManager.isSorted(fileName)){
 					System.out.println(SORTED_MESSAGE_SUCCESS);
 				}
+			} else if (command.equals("search")){
+				data = sc.nextLine();
+				FileManager.searchFile(fileName, data);
 			}
 			System.out.print("command: ");
 		}

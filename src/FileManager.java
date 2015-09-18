@@ -147,8 +147,18 @@ public class FileManager {
 	    return sorted;
 	}
 
-	public static int searchFile(String fileName, String word) {
+	public static int searchFile(String fileName, String word) throws FileNotFoundException, IOException {
+		int numLinesMatched = 0;
+		ArrayList<String> toSearch = new ArrayList<String>();
+		toSearch = convertToArrayList(fileName);
+		word = word.trim();
+		for (int i = 0; i < toSearch.size(); i++) {
+	        if (toSearch.get(i).contains(word)) {
+	        	numLinesMatched++;
+	        	System.out.println(toSearch.get(i));
+	        }
+	    }
 		
-		return 0;
+		return numLinesMatched;
 	}
 }

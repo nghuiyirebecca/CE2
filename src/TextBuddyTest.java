@@ -1,8 +1,6 @@
 import static org.junit.Assert.*;
 
 import java.io.IOException;
-import java.util.ArrayList;
-
 import org.junit.Test;
 
 
@@ -25,7 +23,6 @@ public class TextBuddyTest {
 		FileManager.addToFile(FILENAME, "Reb");
 		FileManager.addToFile(FILENAME, "I like dolphins");
 		FileManager.addToFile(FILENAME, "Reb2");
-		FileManager.searchFile(FILENAME, "Reb");
 		assertSame(2, FileManager.searchFile(FILENAME, "Reb"));
 	}
 
