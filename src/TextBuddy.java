@@ -18,6 +18,8 @@ public class TextBuddy {
 	private static final String CLEAR_MESSAGE = "all content deleted from ";
 	private static final String ADD_MESSAGE = "added to ";
 	private static final int SYSTEM_EXIT_SUCCESS = 0;
+	private static final boolean NULL_MESSAGE = false;
+	private static final boolean SUCCESS_MESSAGE = true;
 	
 	public static void main(String[] args) throws IOException {
 		String fileName = args[0];
@@ -60,9 +62,10 @@ public class TextBuddy {
 			command = sc.next();
 			if (command.equals("add")) {
 				data = sc.nextLine();
-				addToFile(fileName, data);
-				totalLines++;
-				System.out.println(ADD_MESSAGE + fileName +": " + data);
+				if (addToFile(fileName, data)){
+					totalLines++;
+					System.out.println(ADD_MESSAGE + fileName +": " + data);
+				}
 			} else if (command.equals("display")) {
 				displayFile(fileName);
 			} else if (command.equals("delete")) {
@@ -145,17 +148,22 @@ public class TextBuddy {
 	}
 
 	// Add new input line to the file
-	static void addToFile(String fileName, String newLine) {
+	static boolean addToFile(String fileName, String newLine) {
 		FileWriter fWriter;
+		newLine = newLine.trim();
 		try {
-			fWriter = new FileWriter(fileName, true);
-			PrintWriter pWriter = new PrintWriter(fWriter);
-			pWriter.println(newLine);
-			pWriter.close();
-
+			if (!newLine.isEmpty()){
+				fWriter = new FileWriter(fileName, true);
+				PrintWriter pWriter = new PrintWriter(fWriter);
+				pWriter.println(newLine);
+				pWriter.close();
+			} else {
+				return NULL_MESSAGE;
+			}
 		} catch (IOException e) {
 			e.printStackTrace();
 			System.out.println("There is an IOException");
 		}
+		return SUCCESS_MESSAGE;
 	}
 }

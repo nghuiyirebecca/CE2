@@ -14,16 +14,19 @@ public class TextBuddyTest {
 		testAdd();
 		testDelete();
 	}
-	
+
 	private void testClear() throws IOException {
 		TextBuddy.clearFile(FILENAME);
 		assertEquals(0, TextBuddy.numLines(FILENAME));
-		
 	}
 
 	public void testAdd() throws IOException  {
-		TextBuddy.addToFile(FILENAME, "hello");
 		TextBuddy.addToFile(FILENAME, "byebye");
+		TextBuddy.addToFile(FILENAME, "abba");
+		assertEquals(2, TextBuddy.numLines(FILENAME));
+		
+		//add empty string
+		TextBuddy.addToFile(FILENAME, "");
 		assertEquals(2, TextBuddy.numLines(FILENAME));
 	}
 	
