@@ -1,7 +1,6 @@
 import static org.junit.Assert.*;
 
 import java.io.IOException;
-
 import org.junit.Test;
 
 
@@ -14,6 +13,17 @@ public class TextBuddyTest {
 		testClear();
 		testAdd();
 		testDelete();
+		testSort();
+	}
+
+	private void testSort() throws IOException {
+		//already sorted
+		FileManager.clearFile(FILENAME);
+		FileManager.addToFile(FILENAME, "a");
+		FileManager.addToFile(FILENAME, "b");
+		FileManager.addToFile(FILENAME, "c");
+		FileManager.sortFile(FILENAME);	
+		assertEquals(true, FileManager.isSorted());
 	}
 
 	private void testClear() throws IOException {
@@ -36,6 +46,7 @@ public class TextBuddyTest {
 		assertEquals(1, TextBuddy.numLines(FILENAME));
 		
 	}
-
+	
+	
 	
 }

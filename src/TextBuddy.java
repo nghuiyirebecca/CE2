@@ -15,12 +15,14 @@ public class TextBuddy {
 	private static final String CLEAR_MESSAGE = "all content deleted from ";
 	private static final String ADD_MESSAGE = "added to ";
 	private static final int SYSTEM_EXIT_SUCCESS = 0;
+	
 	public static void main(String[] args) throws IOException {
 		String fileName = args[0];
 		System.out.println(WELCOME_MESSAGE);
 		System.out.println(fileName + READY_MESSAGE);
 
 		FileWriter newFile = new FileWriter(new File(fileName), true);
+	
 		executeCommand(fileName);
 		newFile.close();
 	}
@@ -72,6 +74,8 @@ public class TextBuddy {
 				System.out.println(CLEAR_MESSAGE + fileName);
 			} else if (command.equals("exit")) {
 				System.exit( SYSTEM_EXIT_SUCCESS);
+			} else if (command.equals("sort")) {
+				FileManager.sortFile(fileName);
 			}
 			System.out.print("command: ");
 		}

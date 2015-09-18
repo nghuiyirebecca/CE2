@@ -84,7 +84,6 @@ public class FileManager {
 			currLine++;
 			data = bReader.readLine();
 		}
-	
 		bReader.close();
 	}
 
@@ -96,6 +95,12 @@ public class FileManager {
 		pWriter.close();
 	}
 
-	
-	
+	public static void sortFile(String fileName) {
+		
+	}
+
+	public static boolean isSorted() {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }
