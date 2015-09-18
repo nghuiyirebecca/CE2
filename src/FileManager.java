@@ -5,6 +5,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 
 
 public class FileManager {
@@ -95,12 +96,32 @@ public class FileManager {
 		pWriter.close();
 	}
 
-	public static void sortFile(String fileName) {
-		
+	public static void sortFile(String fileName) throws IOException {
+		if (!isSorted(fileName)){
+			
+		}
 	}
 
-	public static boolean isSorted() {
-		// TODO Auto-generated method stub
-		return false;
+	public static boolean isSorted(String fileName) throws IOException {
+		boolean sorted = true;
+		File toSort = new File(fileName);
+		FileReader fReader;
+		fReader = new FileReader(toSort);
+		BufferedReader bReader = new BufferedReader(fReader);
+		String item = bReader.readLine();
+		ArrayList<String> list = new ArrayList<String>();
+		
+		while (item!=null){
+			list.add(item);
+			item = bReader.readLine();
+		}
+
+	    for (int i = 1; i < list.size(); i++) {
+	        if (list.get(i-1).compareTo(list.get(i)) > 0) {
+	        	sorted = false;
+	        }
+	    }
+	    bReader.close();
+	    return sorted;
 	}
 }

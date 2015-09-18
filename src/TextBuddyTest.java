@@ -23,7 +23,7 @@ public class TextBuddyTest {
 		FileManager.addToFile(FILENAME, "b");
 		FileManager.addToFile(FILENAME, "c");
 		FileManager.sortFile(FILENAME);	
-		assertEquals(true, FileManager.isSorted());
+		assertEquals(true, FileManager.isSorted(FILENAME));
 	}
 
 	private void testClear() throws IOException {
