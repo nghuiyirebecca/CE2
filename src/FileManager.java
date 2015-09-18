@@ -6,6 +6,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Collections;
 
 
 public class FileManager {
@@ -98,7 +99,25 @@ public class FileManager {
 
 	public static void sortFile(String fileName) throws IOException {
 		if (!isSorted(fileName)){
+			File toSort = new File(fileName);
+			FileReader fReader;
+			fReader = new FileReader(toSort);
+			BufferedReader bReader = new BufferedReader(fReader);
+			String item = bReader.readLine();
+			ArrayList<String> sorted = new ArrayList<String>();
+				
+			while (item!=null){
+				sorted.add(item);
+				item = bReader.readLine();
+			}
 			
+			clearFile(fileName);
+			Collections.sort(sorted);
+			
+			for (String text : sorted){
+				addToFile(fileName, text);
+			}
+			bReader.close();
 		}
 	}
 

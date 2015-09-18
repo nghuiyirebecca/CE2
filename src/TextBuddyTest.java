@@ -17,6 +17,11 @@ public class TextBuddyTest {
 	}
 
 	private void testSort() throws IOException {
+		//empty file
+		FileManager.clearFile(FILENAME);
+		FileManager.sortFile(FILENAME);
+		assertEquals(false, FileManager.isSorted(FILENAME));
+		
 		//already sorted
 		FileManager.clearFile(FILENAME);
 		FileManager.addToFile(FILENAME, "a");
@@ -32,6 +37,7 @@ public class TextBuddyTest {
 		FileManager.addToFile(FILENAME, "b");
 		FileManager.sortFile(FILENAME);	
 		assertEquals(true, FileManager.isSorted(FILENAME));
+		
 	}
 
 	private void testClear() throws IOException {
