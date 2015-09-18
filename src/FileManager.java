@@ -100,6 +100,7 @@ public class FileManager {
 		pWriter.close();
 	}
 
+	// sorts file according to alphabetical order
 	public static void sortFile(String fileName) throws IOException {
 		if (!isSorted(fileName)){
 			ArrayList<String> sorted = new ArrayList<String>();
@@ -129,7 +130,8 @@ public class FileManager {
 		bReader.close();
 		return sorted;
 	}
-
+	
+	// checks if file is sorted
 	public static boolean isSorted(String fileName) throws IOException {
 		boolean sorted = true;
 		
@@ -148,6 +150,7 @@ public class FileManager {
 	    return sorted;
 	}
 
+	// searches file for keyword and prints items with keywords out
 	public static int searchFile(String fileName, String word) throws FileNotFoundException, IOException {
 		int numLinesMatched = 0;
 		ArrayList<String> toSearch = new ArrayList<String>();
