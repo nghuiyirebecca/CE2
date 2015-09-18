@@ -8,6 +8,7 @@ import org.junit.Test;
 public class TextBuddyTest {
 
 	private static final String FILENAME = "mytextfile.txt";
+	
 	@Test
 	public void test() throws IOException {
 		testClear();
@@ -21,12 +22,12 @@ public class TextBuddyTest {
 	}
 
 	public void testAdd() throws IOException  {
-		TextBuddy.addToFile(FILENAME, "byebye");
-		TextBuddy.addToFile(FILENAME, "abba");
+		FileManager.addToFile(FILENAME, "byebye");
+		FileManager.addToFile(FILENAME, "abba");
 		assertEquals(2, TextBuddy.numLines(FILENAME));
 		
 		//add empty string
-		TextBuddy.addToFile(FILENAME, "");
+		FileManager.addToFile(FILENAME, "");
 		assertEquals(2, TextBuddy.numLines(FILENAME));
 	}
 	
