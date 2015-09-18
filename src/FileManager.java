@@ -153,6 +153,12 @@ public class FileManager {
 		ArrayList<String> toSearch = new ArrayList<String>();
 		toSearch = convertToArrayList(fileName);
 		word = word.trim();
+		
+		if (toSearch.isEmpty()){
+			System.out.println(fileName + EMPTY_FILE_MESSAGE);
+			return numLinesMatched;
+		}
+		
 		for (int i = 0; i < toSearch.size(); i++) {
 	        if (toSearch.get(i).contains(word)) {
 	        	numLinesMatched++;
