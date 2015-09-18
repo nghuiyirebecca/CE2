@@ -101,41 +101,39 @@ public class FileManager {
 
 	public static void sortFile(String fileName) throws IOException {
 		if (!isSorted(fileName)){
-			File toSort = new File(fileName);
-			FileReader fReader;
-			fReader = new FileReader(toSort);
-			BufferedReader bReader = new BufferedReader(fReader);
-			String item = bReader.readLine();
 			ArrayList<String> sorted = new ArrayList<String>();
-				
-			while (item!=null){
-				sorted.add(item);
-				item = bReader.readLine();
-			}
-			
+			sorted = convertToArrayList(fileName);
 			clearFile(fileName);
 			Collections.sort(sorted);
 			
 			for (String text : sorted){
 				addToFile(fileName, text);
 			}
-			bReader.close();
 		}
 	}
 
-	public static boolean isSorted(String fileName) throws IOException {
-		boolean sorted = true;
+	private static ArrayList<String> convertToArrayList(String fileName)
+			throws FileNotFoundException, IOException {
 		File toSort = new File(fileName);
 		FileReader fReader;
 		fReader = new FileReader(toSort);
 		BufferedReader bReader = new BufferedReader(fReader);
 		String item = bReader.readLine();
-		ArrayList<String> list = new ArrayList<String>();
-		
+		ArrayList<String> sorted = new ArrayList<String>();
+			
 		while (item!=null){
-			list.add(item);
+			sorted.add(item);
 			item = bReader.readLine();
 		}
+		bReader.close();
+		return sorted;
+	}
+
+	public static boolean isSorted(String fileName) throws IOException {
+		boolean sorted = true;
+		
+		ArrayList<String> list = new ArrayList<String>();
+		list = convertToArrayList(fileName);
 
 		if (list.isEmpty()){
 			sorted = false;
@@ -146,7 +144,11 @@ public class FileManager {
 	        	sorted = false;
 	        }
 	    }
-	    bReader.close();
 	    return sorted;
+	}
+
+	public static int searchFile(String fileName, String word) {
+		
+		return 0;
 	}
 }

@@ -1,6 +1,8 @@
 import static org.junit.Assert.*;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 import org.junit.Test;
 
 
@@ -20,11 +22,11 @@ public class TextBuddyTest {
 	private void testSearch() throws IOException {
 		//one or more instance of the word
 		FileManager.clearFile(FILENAME);
-		FileManager.addToFile(FILENAME, "Rebecca");
+		FileManager.addToFile(FILENAME, "Reb");
 		FileManager.addToFile(FILENAME, "I like dolphins");
-		FileManager.addToFile(FILENAME, "Rebecca2");
-		FileManager.searchFile(FILENAME, "Rebecca")
-		
+		FileManager.addToFile(FILENAME, "Reb2");
+		FileManager.searchFile(FILENAME, "Reb");
+		assertSame(2, FileManager.searchFile(FILENAME, "Reb"));
 	}
 
 	private void testSort() throws IOException {
