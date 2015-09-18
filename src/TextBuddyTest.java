@@ -17,7 +17,7 @@ public class TextBuddyTest {
 	}
 
 	private void testClear() throws IOException {
-		TextBuddy.clearFile(FILENAME);
+		FileManager.clearFile(FILENAME);
 		assertEquals(0, TextBuddy.numLines(FILENAME));
 	}
 
@@ -32,7 +32,7 @@ public class TextBuddyTest {
 	}
 	
 	public void testDelete() throws IOException{
-		TextBuddy.deleteFromFile(FILENAME, 1, 2);
+		FileManager.deleteFromFile(FILENAME, 1, 2);
 		assertEquals(1, TextBuddy.numLines(FILENAME));
 		
 	}
