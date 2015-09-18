@@ -23,7 +23,6 @@ public class TextBuddy {
 		System.out.println(fileName + READY_MESSAGE);
 
 		FileWriter newFile = new FileWriter(new File(fileName), true);
-	
 		executeCommand(fileName);
 		newFile.close();
 	}
@@ -77,7 +76,9 @@ public class TextBuddy {
 				System.exit(SYSTEM_EXIT_SUCCESS);
 			} else if (command.equals("sort")) {
 				FileManager.sortFile(fileName);
-				System.out.println(SORTED_MESSAGE_SUCCESS);
+				if (FileManager.isSorted(fileName)){
+					System.out.println(SORTED_MESSAGE_SUCCESS);
+				}
 			}
 			System.out.print("command: ");
 		}

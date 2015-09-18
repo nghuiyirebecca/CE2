@@ -14,6 +14,17 @@ public class TextBuddyTest {
 		testAdd();
 		testDelete();
 		testSort();
+		testSearch();
+	}
+
+	private void testSearch() throws IOException {
+		//one or more instance of the word
+		FileManager.clearFile(FILENAME);
+		FileManager.addToFile(FILENAME, "Rebecca");
+		FileManager.addToFile(FILENAME, "I like dolphins");
+		FileManager.addToFile(FILENAME, "Rebecca2");
+		FileManager.searchFile(FILENAME, "Rebecca")
+		
 	}
 
 	private void testSort() throws IOException {
