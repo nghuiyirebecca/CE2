@@ -14,6 +14,7 @@ public class FileManager {
 	private static final boolean NULL_MESSAGE = false;
 	private static final String DELETE_MESSAGE = "delete from ";
 	private static final boolean SUCCESS_MESSAGE = true;
+	private static final String EMPTY_FILE_MESSAGE = "file is empty";
 	
 	// Add new input line to the file
 	static boolean addToFile(String fileName, String newLine) {
@@ -135,6 +136,10 @@ public class FileManager {
 			item = bReader.readLine();
 		}
 
+		if (list.isEmpty()){
+			sorted = false;
+			System.out.println(EMPTY_FILE_MESSAGE);
+		}
 	    for (int i = 1; i < list.size(); i++) {
 	        if (list.get(i-1).compareTo(list.get(i)) > 0) {
 	        	sorted = false;
