@@ -35,6 +35,13 @@ public class TextBuddyTest {
 		//empty file
 		FileManager.clearFile(FILENAME);
 		assertSame(0, FileManager.searchFile(FILENAME, "poop"));
+		
+		//non alphanumeric characters
+		FileManager.clearFile(FILENAME);
+		FileManager.addToFile(FILENAME, "Reb!!!!");
+		FileManager.addToFile(FILENAME, "I like dolphins@@!");
+		FileManager.addToFile(FILENAME, "Reb2 :D");
+		assertSame(2, FileManager.searchFile(FILENAME, "!"));
 	}
 
 	private void testSort() throws IOException {
