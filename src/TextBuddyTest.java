@@ -85,10 +85,6 @@ public class TextBuddyTest {
 	
 	public void testDelete() throws IOException{
 		FileManager.deleteFromFile(FILENAME, 1, 2);
-		assertEquals(1, TextBuddy.numLines(FILENAME));
-		
+		assertEquals(1, TextBuddy.numLines(FILENAME));	
 	}
-	
-	
-	
 }

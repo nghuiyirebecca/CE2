@@ -6,8 +6,6 @@ import java.io.IOException;
 import java.util.Scanner;
 
 
-
-
 public class TextBuddy {
 	
 	private static final String WELCOME_MESSAGE = "Welcome to Textbuddy.";
