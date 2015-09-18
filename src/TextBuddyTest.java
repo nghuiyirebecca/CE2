@@ -24,6 +24,17 @@ public class TextBuddyTest {
 		FileManager.addToFile(FILENAME, "I like dolphins");
 		FileManager.addToFile(FILENAME, "Reb2");
 		assertSame(2, FileManager.searchFile(FILENAME, "Reb"));
+		
+		//no instance of the word
+		FileManager.clearFile(FILENAME);
+		FileManager.addToFile(FILENAME, "Reb");
+		FileManager.addToFile(FILENAME, "I like dolphins");
+		FileManager.addToFile(FILENAME, "Reb2");
+		assertSame(0, FileManager.searchFile(FILENAME, "diapers"));
+		
+		//empty file
+		FileManager.clearFile(FILENAME);
+		assertSame(0, FileManager.searchFile(FILENAME, "poop"));
 	}
 
 	private void testSort() throws IOException {

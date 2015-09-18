@@ -15,6 +15,7 @@ public class FileManager {
 	private static final String DELETE_MESSAGE = "delete from ";
 	private static final boolean SUCCESS_MESSAGE = true;
 	private static final String EMPTY_FILE_MESSAGE = " is empty";
+	private static final String NO_SUCH_ITEM_MESSAGE = "there is no item containg ";
 
 	
 	// Add new input line to the file
@@ -158,6 +159,10 @@ public class FileManager {
 	        	System.out.println(toSearch.get(i));
 	        }
 	    }
+		
+		if (numLinesMatched == 0){
+			System.out.println(NO_SUCH_ITEM_MESSAGE + word);
+		}
 		
 		return numLinesMatched;
 	}
